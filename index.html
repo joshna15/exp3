@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .success {
+            color: green;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Event Registration Form</h2>
+        <form id="registrationForm" onsubmit="return showSuccessMessage()">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Enter Email Id:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="event">Enter Event:</label>
+            <select id="event" name="event" required>
+                <option value="workshop">Workshop</option>
+                <option value="webinar">Webinar</option>
+                <option value="conference">Conference</option>
+            </select>
+
+            <button type="submit">Submit</button>
+        </form>
+        <p id="successMessage" class="success"></p>
+    </div>
+
+    <script>
+        // This function is triggered when the form is submitted
+        function showSuccessMessage() {
+            // Get the values from the form inputs (optional, but useful for confirmation)
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+            var event = document.getElementById('event').value;
+
+            // Display the success message
+            var successMessage = document.getElementById('successMessage');
+            successMessage.innerHTML = `Thank you for registering, ${name}! You have successfully registered for the ${event} event.`;
+
+            // Prevent form from actually submitting (this is for demonstration purposes)
+            return false;
+        }
+    </script>
+</body>
+</html>
